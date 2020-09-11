@@ -1,0 +1,416 @@
+*{
+    box-sizing: border-box;
+    opacity: 1;
+
+}
+body{
+    /**/
+    margin: 0;
+    width:100%;
+
+    
+    
+}
+
+header{     
+    /*Using flex-box*/
+    display: flex;
+    flex-direction: row;
+    /*Spreading the elements*/
+    justify-content: space-between;
+    /*Setting shadow and blur*/
+    box-shadow: 0 6px 10px gray;
+    /*putting on margin at the bottom*/
+    margin-bottom: 7px;
+
+    /*wraping when the screen changes sizes*/
+    flex-wrap: wrap;
+    
+}
+
+
+header>*{
+    /*Putting padding on boths sides of headers children*/
+    padding-inline: 30px;
+    /*setting margin for the header elements*/
+    margin-top: 19px;
+    margin-bottom: 17px;
+
+}
+
+/*styling header h2 elem*/
+header h2{
+    text-align: left;
+    font: normal normal bolder 20px/27px Arial, Helvetica, sans-serif;
+    letter-spacing: 0px;
+    color: #000000;
+}
+
+/*styling header h4*/
+header h4{
+    text-align: left;
+    font: normal normal 400 20px/27px Arial, Helvetica, sans-serif;
+    letter-spacing: 0;
+    color: #333333;
+}
+
+
+main{
+    /*centering the main element and resizing it*/
+    width: 70%;
+    margin: auto;
+
+    /*Using grid to make areas for elements and centering them*/
+    display: grid;
+    grid-template-areas: "addToDo . ."
+                        "toDo toDo toDo"
+                        "completed completed completed";
+    justify-items: start;
+
+
+}
+
+
+/*all children of main*/
+main>*{
+
+    /*setting a margin between the elements*/
+    margin-top: 70px;
+}
+
+
+
+.addToDo{
+    width: 150px;
+
+    grid-area:addToDo;
+    /*centering the text*/
+    text-align: center;
+    /*setting font  (style, variant, weith, size/line-height and family)*/
+    font: normal normal normal 23px/32px Arial, Helvetica, sans-serif;
+
+
+    /*making the elemet flex, for when the screen is resized*/
+    
+
+    /*setting padding so it looks like a button*/
+    padding-block: 10px;
+
+    border: 1px solid black;
+    padding-inline: 5%;
+    
+}
+
+
+
+/*changing the colour when hover and making sure that cursor does not change*/
+.addToDo:hover{
+    background-color: lightseagreen;
+    cursor: pointer;
+}
+
+
+/*todo cards*/
+.toDo{
+    /*Removing padding*/
+    padding:0;
+    /*setting width to 100%*/
+    width: 100%;
+
+    grid-area: toDo;
+    /*using flexbox with space between elements*/
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    /*making the elemets wrap (change position) as the screen gets smaler*/
+    flex-wrap: wrap;
+
+    row-gap:  10px;
+
+}
+
+/*children of all todo cards*/
+.toDo>*{
+    /*setting grid to have 3 colums of 33% each and rows are auto generated*/
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: auto;
+    /*setting shadow and radius*/
+    box-shadow: 0px 8px 16px #5DD3D829;
+    border-radius: 8px;
+
+
+}
+
+/*setting max and min width so the elemets in the grid wrap*/
+.latestToDo{
+    width: 400px;
+    height: 250px;
+
+    
+    
+}
+
+/*selecting all children of article and removing block margin*/
+.toDo article>*{
+    margin-block: 0;
+
+}
+
+/*header in todo cards*/ 
+.toDo article h4{
+    /*setting row for element, start and end of columns*/
+    grid-row: 1;
+    grid-column-start: 1;
+    grid-column-end: 2;
+
+    text-align: left;
+    font: normal normal bold 16px/22px Arial, Helvetica;
+    letter-spacing: 0px;
+    color: #333333;
+
+    margin-inline: 20px;
+    
+}
+
+/*text in todo cards*/
+.toDo article p{
+    grid-row: 2;
+    grid-column-start: 1;
+    grid-column-end: 4;
+
+    text-align: left;
+    font: normal normal normal 14px/19px Arial, Helvetica;
+    letter-spacing: 0px;
+    color: #333333;
+
+    margin-inline: 20px;
+    
+}
+
+/*All buttons*/
+button{
+    padding: 5px;
+    margin-inline: 5px;
+    border-radius: 5px;
+
+    color: white;
+
+    width: 80px;;
+    height: 30px;
+
+    border-style: none;
+
+
+}
+/*delete button in todo cards*/
+.deleteButton{
+    grid-row: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    background: #EF3340 0% 0% no-repeat padding-box;
+    
+    margin-left: 50px;
+
+}
+
+/*complete button in todo cards*/
+.completeButton{
+    grid-row: 3;
+    grid-column-start: 3;
+    grid-column-end: 4;
+
+
+    background: #56D4C2 0% 0% no-repeat padding-box;
+    
+}
+
+
+/*completed section containing the table and header*/
+.completed{
+    grid-area: completed;
+    width: 100%;
+    display: grid;
+    grid-template-areas: "title . checkbox"
+                        "tableTitle tableTitle tableTitle"
+                        "content content content";
+    
+
+}
+
+/*header for completed table*/
+.completedHeader{
+    grid-area: title;
+    margin: 0;
+
+    text-align: left;
+    font: normal normal bold 16px/22px Arial, Helvetica;
+    letter-spacing: 0px;
+    color: #333333;
+}
+
+/*checkbox and its label*/
+.filterCompleted{
+    grid-area: checkbox;
+
+    /*using flex to set items to the right*/
+    display: flex;
+    justify-content: right;
+
+    margin-top: 10px;
+    margin-right: 10%;
+
+    text-align: left;
+    font: normal normal medium 14px/19px Arial, Helvetica;
+    letter-spacing: 0px;
+    color: #909090;
+    
+}
+
+/*removing list dots*/
+ul{
+    list-style: none;
+}
+
+/*all list elemtes*/
+ul li{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    text-align: left;
+
+    
+}
+
+ul li>*{
+   margin-block: 5px;
+}
+
+/*table header*/
+.completedTableHeader{
+    grid-area: tableTitle;
+    background: #E6E6E6 0% 0% no-repeat padding-box;
+
+    font: normal normal bold 14px/19px Arial, Helvetica;
+    color: #363636;
+
+    margin:0;
+
+}
+
+.tableItems{
+    grid-area: content;
+
+
+    font: normal normal normal 14px/19px Arial, Helvetica;
+    letter-spacing: 0px;
+    color: #8B8B8B;
+    padding:0;
+    
+
+}
+
+.tableItems li{
+    border-bottom: 1px solid cyan;  
+    padding-left: 45px;
+}
+
+
+
+
+
+/*The wrapper fo popup form*/
+.popupFormWrapper{
+
+
+    /*FOR POPUP*/
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+
+    width:  100vw;
+    height: 100vh;
+
+
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/*The form*/
+.popupFormMain{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 1px 8px #00000029;
+    border-radius: 8px;
+    width: 320px;
+    height: 380px;
+
+    margin: 10% auto; /* 15% from the top and centered */
+    padding: 20px;
+}
+
+/*header title and X buton*/
+.popupFormHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    border-bottom: 1px solid lightcyan;
+}
+
+/*children of the header*/
+.popupFormHeader>*{
+    margin-inline: 5%;
+
+}
+
+.popupFormHeader h3{
+    font: normal normal bold 14px/43px Helvetica;
+    letter-spacing: 0px;
+    color: #333333;
+}
+
+/*the X elemet on the form*/
+.popupFormHeader p{
+    padding-top: 3%;
+}
+
+/*Hovering over the X on the form*/
+.popupFormHeader p:hover{
+    cursor: pointer;
+}
+
+
+
+/*input sections in the form*/
+.popupForm section{
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 5%;
+    margin-inline: 10%;
+
+    font: normal normal bold 12px/17px Helvetica;
+    letter-spacing: 0px;
+    color: #333333;
+}
+
+/*input textbox*/
+.inputField{
+    border: 1px solid #B6B6B6;
+    border-radius: 5px;
+    height: 40px;
+}
+
+/*Submit button*/
+.createTodoButton{
+    margin-top: 5%;
+    margin-inline: 10%;
+    width: 80%;
+    background: #56D4C2 0% 0% no-repeat padding-box;
+    border-style: none;
+    font: normal normal bold 16px/22px Arial, Helvetica;
+    color:white;
+}
+

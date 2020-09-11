@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="nb">
+    <head>
+        <title>
+            Moren din
+        </title>
+        <meta charset="UTF-8">
+        <meta name="viewport">
+    </head>
+    <body>
+        <script src="bundle.js" type="text/javascript"></script>
+        <!-- <link rel="stylesheet" type="text/scss" href="css.css"> -->
+        <header>
+            <h2 >HIOF</h2>
+            <h4>User user</h4>
+        </header>
+        <main>
+        <p id="toDoBtn" class="addToDo" >+ To do</p>
+        <section class="toDo" id="cards">
+        </section>
+
+        <section class="completed">
+            <h3 class="completedHeader">Completed todos</h3>
+            <section class="filterCompleted">
+                <input type="checkbox" class="filterByDate" id="checkbox">
+                <label for="checkbox">Filter by date</label>
+            </section>
+            <ul class="completedTableHeader">
+                <li>
+                    <h4>Title</h4>
+                    <h4>Author</h4>
+                    <h4>Description</h4>
+                    <h4>Completed date</h4>
+                </li>
+            </ul>
+            <ul class="tableItems" id="completedWrapper">
+            </ul>
+        </section>
+    </main>
+    <section class="popupFormWrapper" id="formWrapper">
+        <section class="popupFormMain">
+            <section class="popupFormHeader">
+                <h3>New todo</h3>
+                <p id="exitFormBtn">&#10005;</p>
+            </section>
+            <form class="popupForm" id="form">
+                <section class="popupFormTitle">
+                    <label for="title">Title</label>
+                    <input required  type="text" id="title" name="title" class="inputField">
+                </section>
+                
+                <section class="popupFormDescription">
+                    <label for="description" id="descriptionLabel">Description(30 char left)</label>
+                    <input required  maxlength="30" type="text" id="description" name="description" class="inputField">
+                </section>
+                
+                <section class="popupFormAuthor">
+                    <label for="autor">Author</label>
+                    <input required  type="text" id="author" name="author" class="inputField">
+                </section>
+                <input type="submit" value="Create todo" class="createTodoButton">
+            </form>
+        </section>
+    </section>
+    </body>
+</html>
